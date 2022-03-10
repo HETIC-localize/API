@@ -22,8 +22,8 @@ services:
     ports:
       - 8000:80
     volumes:
-      - ./:/var/www
-      - ./docker/nginx:/etc/nginx/conf.d
+      - ./:/var/www/
+      - ./docker/nginx/:/etc/nginx/conf.d/
     networks:
       - database
 
@@ -33,7 +33,7 @@ services:
         user: localize
         uid: 1000
       context: ./
-      dockerfile: ./docker/php/Dockerfile
+      dockerfile: Dockerfile
     container_name: localize-app
     restart: unless-stopped
     working_dir: /var/www/
